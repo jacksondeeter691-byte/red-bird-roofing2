@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
-import { SparklesCore } from '@/components/ui/sparkles';
+import { FloatingPaths } from '@/components/ui/background-paths';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Star, Hammer, Droplet, Eye, ClipboardCheck, Phone, MapPin, Clock } from 'lucide-react';
@@ -93,16 +93,8 @@ export default function Home() {
       {/* Hero Section with Scroll Expansion */}
       <div className='relative'>
         <div className='absolute inset-0 z-10 pointer-events-none h-screen'>
-          <SparklesCore
-            id='hero-sparkles'
-            background='transparent'
-            minSize={0.4}
-            maxSize={0.8}
-            particleDensity={50}
-            className='w-full h-full'
-            particleColor='#ea580c'
-            speed={2}
-          />
+          <FloatingPaths position={1} />
+          <FloatingPaths position={-1} />
         </div>
         <ScrollExpandMedia
           mediaType='image'
