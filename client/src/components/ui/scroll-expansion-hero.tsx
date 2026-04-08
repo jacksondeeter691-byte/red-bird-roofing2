@@ -249,7 +249,7 @@ const ScrollExpandMedia = ({
               </div>
 
               <motion.div
-                className='absolute z-20 text-center'
+                className='absolute z-20 text-center px-6'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: showContent ? 1 : 0,
@@ -257,19 +257,21 @@ const ScrollExpandMedia = ({
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {title && (
-                  <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white'>
-                    <span className='text-accent'>{firstWord}</span> {restOfTitle}
-                  </h1>
-                )}
-                {date && (
-                  <p className='text-lg text-white/80 mb-6'>{date}</p>
-                )}
-                {scrollToExpand && (
-                  <p className='text-sm text-white/60 animate-pulse'>
-                    {scrollToExpand}
-                  </p>
-                )}
+                <div className='bg-black/50 backdrop-blur-sm rounded-2xl py-8 px-8 max-w-2xl'>
+                  {title && (
+                    <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white drop-shadow-lg'>
+                      <span className='text-accent drop-shadow-lg'>{firstWord}</span> {restOfTitle}
+                    </h1>
+                  )}
+                  {date && (
+                    <p className='text-lg text-white drop-shadow-md mb-6'>{date}</p>
+                  )}
+                  {scrollToExpand && (
+                    <p className='text-sm text-white/95 animate-pulse drop-shadow-md'>
+                      {scrollToExpand}
+                    </p>
+                  )}
+                </div>
               </motion.div>
             </div>
           </div>

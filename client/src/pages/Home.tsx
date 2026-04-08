@@ -76,6 +76,9 @@ export default function Home() {
             <a href='#reviews' className='text-foreground hover:text-accent transition'>Reviews</a>
             <a href='#about' className='text-foreground hover:text-accent transition'>About</a>
             <a href='#contact' className='text-foreground hover:text-accent transition'>Contact</a>
+            <Link href='/gallery'>
+              <a className='text-foreground hover:text-accent transition'>Gallery</a>
+            </Link>
             <Link href='/booking'>
               <Button className='bg-accent hover:bg-accent/90'>Book Now</Button>
             </Link>
@@ -304,6 +307,7 @@ export default function Home() {
                   <h4 className='font-bold mb-4'>Company</h4>
                   <ul className='space-y-2 text-white/70'>
                     <li><a href='#about' className='hover:text-white transition'>About</a></li>
+                    <li><Link href='/gallery' className='hover:text-white transition'>Gallery</Link></li>
                     <li><Link href='/privacy' className='hover:text-white transition'>Privacy Policy</Link></li>
                     <li><Link href='/accessibility' className='hover:text-white transition'>Accessibility</Link></li>
                   </ul>

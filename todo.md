@@ -48,3 +48,10 @@
 - [x] Test booking form submission
 - [x] Verify accessibility compliance
 - [x] Create checkpoint before delivery
+
+## Recent Improvements (User Feedback)
+- [x] Improve hero text readability with better contrast and background
+- [x] Add zoom-parallax gallery component for visual interest
+- [x] Install Lenis smooth scroll library
+- [x] Create Gallery page with zoom-parallax effect
+- [x] Add Gallery link to navigation and footer

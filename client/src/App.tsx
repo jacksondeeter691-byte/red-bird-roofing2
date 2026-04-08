@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Booking from "./pages/Booking";
 import Privacy from "./pages/Privacy";
 import Accessibility from "./pages/Accessibility";
+import Gallery from "./pages/Gallery";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -15,6 +16,7 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/booking"} component={Booking} />
+      <Route path={"/gallery"} component={Gallery} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/accessibility"} component={Accessibility} />
       <Route path={"/404"} component={NotFound} />
