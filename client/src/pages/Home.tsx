@@ -76,8 +76,8 @@ export default function Home() {
             <a href='#reviews' className='text-foreground hover:text-accent transition'>Reviews</a>
             <a href='#about' className='text-foreground hover:text-accent transition'>About</a>
             <a href='#contact' className='text-foreground hover:text-accent transition'>Contact</a>
-            <Link href='/gallery'>
-              <a className='text-foreground hover:text-accent transition'>Gallery</a>
+            <Link href='/gallery' className='text-foreground hover:text-accent transition'>
+              Gallery
             </Link>
             <Link href='/booking'>
               <Button className='bg-accent hover:bg-accent/90'>Book Now</Button>
