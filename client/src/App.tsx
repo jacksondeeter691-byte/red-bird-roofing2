@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Router, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -11,20 +11,25 @@ import Accessibility from "./pages/Accessibility";
 import Gallery from "./pages/Gallery";
 import FAQ from "./pages/FAQ";
 
-function Router() {
+// Strip trailing slash so wouter base matches correctly (e.g. "/red-bird-roofing2")
+const routerBase = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+function AppRouter() {
   // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/booking"} component={Booking} />
-      <Route path={"/gallery"} component={Gallery} />
-      <Route path={"/faq"} component={FAQ} />
-      <Route path={"/privacy"} component={Privacy} />
-      <Route path={"/accessibility"} component={Accessibility} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <Router base={routerBase}>
+      <Switch>
+        <Route path={"/"} component={Home} />
+        <Route path={"/booking"} component={Booking} />
+        <Route path={"/gallery"} component={Gallery} />
+        <Route path={"/faq"} component={FAQ} />
+        <Route path={"/privacy"} component={Privacy} />
+        <Route path={"/accessibility"} component={Accessibility} />
+        <Route path={"/404"} component={NotFound} />
+        {/* Final fallback route */}
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 
@@ -41,7 +46,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <AppRouter />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
