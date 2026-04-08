@@ -9,6 +9,7 @@ import Booking from "./pages/Booking";
 import Privacy from "./pages/Privacy";
 import Accessibility from "./pages/Accessibility";
 import Gallery from "./pages/Gallery";
+import FAQ from "./pages/FAQ";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -17,6 +18,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/booking"} component={Booking} />
       <Route path={"/gallery"} component={Gallery} />
+      <Route path={"/faq"} component={FAQ} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/accessibility"} component={Accessibility} />
       <Route path={"/404"} component={NotFound} />

@@ -55,3 +55,10 @@
 - [x] Install Lenis smooth scroll library
 - [x] Create Gallery page with zoom-parallax effect
 - [x] Add Gallery link to navigation and footer
+
+## New Features (User Request)
+- [x] Install sparkles particle effect dependencies
+- [x] Create sparkles component with particle animation
+- [x] Create FAQ section page
+- [x] Integrate sparkles effect into website design
+- [x] Fix nested anchor tag error

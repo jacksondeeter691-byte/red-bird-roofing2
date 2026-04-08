@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
+import { SparklesCore } from '@/components/ui/sparkles';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Star, Hammer, Droplet, Eye, ClipboardCheck, Phone, MapPin, Clock } from 'lucide-react';
@@ -79,6 +80,9 @@ export default function Home() {
             <Link href='/gallery' className='text-foreground hover:text-accent transition'>
               Gallery
             </Link>
+            <Link href='/faq' className='text-foreground hover:text-accent transition'>
+              FAQ
+            </Link>
             <Link href='/booking'>
               <Button className='bg-accent hover:bg-accent/90'>Book Now</Button>
             </Link>
@@ -87,15 +91,28 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with Scroll Expansion */}
-      <ScrollExpandMedia
-        mediaType='image'
-        mediaSrc={currentImage.src}
-        bgImageSrc={currentImage.bg}
-        title='Red Bird Roofing'
-        date='Professional Roofing Services for Indiana'
-        scrollToExpand='Scroll to explore'
-      >
-        <div className='bg-background pt-20'>
+      <div className='relative'>
+        <div className='absolute inset-0 z-10 pointer-events-none h-screen'>
+          <SparklesCore
+            id='hero-sparkles'
+            background='transparent'
+            minSize={0.4}
+            maxSize={0.8}
+            particleDensity={50}
+            className='w-full h-full'
+            particleColor='#ea580c'
+            speed={2}
+          />
+        </div>
+        <ScrollExpandMedia
+          mediaType='image'
+          mediaSrc={currentImage.src}
+          bgImageSrc={currentImage.bg}
+          title='Red Bird Roofing'
+          date='Professional Roofing Services for Indiana'
+          scrollToExpand='Scroll to explore'
+        >
+        <div className='bg-background'>
           {/* Services Section */}
           <section id='services' className='py-20 border-t border-border'>
             <div className='container mx-auto px-4'>
@@ -308,6 +325,7 @@ export default function Home() {
                   <ul className='space-y-2 text-white/70'>
                     <li><a href='#about' className='hover:text-white transition'>About</a></li>
                     <li><Link href='/gallery' className='hover:text-white transition'>Gallery</Link></li>
+                    <li><Link href='/faq' className='hover:text-white transition'>FAQ</Link></li>
                     <li><Link href='/privacy' className='hover:text-white transition'>Privacy Policy</Link></li>
                     <li><Link href='/accessibility' className='hover:text-white transition'>Accessibility</Link></li>
                   </ul>
@@ -325,6 +343,7 @@ export default function Home() {
           </footer>
         </div>
       </ScrollExpandMedia>
+      </div>
     </div>
   );
 }
