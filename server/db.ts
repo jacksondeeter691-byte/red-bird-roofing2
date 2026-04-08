@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, bookings, InsertBooking } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,59 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+/**
+ * Create a new booking
+ */
+export async function createBooking(booking: InsertBooking) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create booking: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.insert(bookings).values(booking);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to create booking:", error);
+    throw error;
+  }
+}
+
+/**
+ * Get all bookings (admin only)
+ */
+export async function getBookings() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get bookings: database not available");
+    return [];
+  }
+
+  try {
+    const result = await db.select().from(bookings);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to get bookings:", error);
+    throw error;
+  }
+}
+
+/**
+ * Get booking by ID
+ */
+export async function getBookingById(id: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get booking: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.select().from(bookings).where(eq(bookings.id, id)).limit(1);
+    return result.length > 0 ? result[0] : null;
+  } catch (error) {
+    console.error("[Database] Failed to get booking:", error);
+    throw error;
+  }
+}
